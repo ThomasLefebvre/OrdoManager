@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ordo Manager</string>
+    <string-array name="period">
+        <item>Semaine</item>
+        <item>Mois</item>
+    </string-array>
+</resources>
