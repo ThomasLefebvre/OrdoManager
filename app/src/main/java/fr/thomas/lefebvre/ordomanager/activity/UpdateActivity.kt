@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
@@ -56,10 +54,7 @@ class UpdateActivity : AppCompatActivity() {
         })
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_new_ordo, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
+
 
     fun setViewUpdateLayout(){
         textView.text="Mettre à jour"
@@ -115,13 +110,13 @@ class UpdateActivity : AppCompatActivity() {
     }
 
     fun listenerButtonRadio() {
-        rb_jour.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
+        rb_date.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
             setPeriodAndDateFin()
         })
-        rb_semaine.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
+        rb_nom.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
             setPeriodAndDateFin()
         })
-        rb_mois.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
+        rb_prenom.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
             setPeriodAndDateFin()
         })
     }
@@ -146,14 +141,7 @@ class UpdateActivity : AppCompatActivity() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.menu_save -> {
-                saveOrdo()
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+
 
     fun setCoefMultiAndDateEnd() {
 
@@ -174,9 +162,9 @@ class UpdateActivity : AppCompatActivity() {
     fun setPeriodAndDateFin() {
         if (edit_duree.text.toString() != "") {
             coefMult = Integer.parseInt(edit_duree.text.toString())
-            if (rb_jour.isChecked) {
+            if (rb_date.isChecked) {
                 period = Period.ofDays(coefMult)
-            } else if (rb_semaine.isChecked) {
+            } else if (rb_nom.isChecked) {
                 period = Period.ofWeeks(coefMult)
             } else period = Period.ofMonths(coefMult)
 

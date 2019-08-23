@@ -1,92 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="wrap_content"
                                                    android:id="@+id/constraint_layout_rv"
                                                    android:background="@color/colorPrimary"
 >
     <TextView
-            android:text="Nom :"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_name_rv" android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="16dp"/>
-    <TextView
-            android:text="Prénom :"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_surname_rv" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name_final" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
-    />
-    <TextView
-            android:text="Date début :"
+            android:text="@string/debut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_date_debut_rv" app:layout_constraintStart_toStartOf="@+id/guideline"
             android:layout_marginStart="16dp" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" android:textSize="14sp"/>
     <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                                 android:id="@+id/guideline" app:layout_constraintGuide_percent="0.5"
                                                 android:orientation="vertical"/>
     <TextView
-            android:text="TextView"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_name_final" app:layout_constraintStart_toEndOf="@+id/tv_name_rv"
-            android:layout_marginStart="8dp" app:layout_constraintBaseline_toBaselineOf="@+id/tv_name_rv"
+            android:id="@+id/tv_name_final"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"/>
+            app:layout_constraintEnd_toStartOf="@+id/guideline" android:textSize="14sp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"/>
     <TextView
-            android:text="TextView"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_surname_final" app:layout_constraintStart_toEndOf="@+id/tv_surname_rv"
-            android:layout_marginStart="8dp" app:layout_constraintBaseline_toBaselineOf="@+id/tv_surname_rv"
+            android:id="@+id/tv_surname_final"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"/>
+            app:layout_constraintEnd_toStartOf="@+id/guideline" android:textSize="14sp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_final"/>
     <TextView
-            android:text="TextView"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_date_debut_final" app:layout_constraintStart_toEndOf="@+id/tv_date_debut_rv"
             android:layout_marginStart="8dp" app:layout_constraintBaseline_toBaselineOf="@+id/tv_date_debut_rv"
-            android:textStyle="bold"/>
+            android:textStyle="bold" android:textSize="18sp"/>
     <TextView
-            android:text="Date fin :"
+            android:text="@string/fin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_date_fin" app:layout_constraintStart_toStartOf="@+id/guideline"
             android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_surname_rv"/>
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="@+id/tv_surname_final"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_surname_final"/>
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:srcCompat="@drawable/ic_clear_white_24dp"
             android:id="@+id/bt_delete"
             android:background="@android:color/transparent" android:padding="4dp"
             app:layout_constraintStart_toEndOf="@+id/tv_delete" android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_surname_final"/>
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_surname_final" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     <TextView
-            android:text="Supprimer"
+            android:text="@string/supprimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_delete"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_update" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_surname_final"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_surname_final" android:textSize="14sp"/>
     <TextView
-            android:text="Mettre à jour"
+            android:text="@string/mettre_a_jour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_update"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             android:layout_marginStart="16dp" android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:textSize="14sp"/>
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:srcCompat="@drawable/ic_mode_edit_white_24dp"
@@ -95,13 +86,14 @@
             app:layout_constraintStart_toEndOf="@+id/tv_update" android:layout_marginStart="16dp"
             app:layout_constraintTop_toTopOf="@+id/bt_delete" app:layout_constraintBottom_toBottomOf="@+id/bt_delete"/>
     <TextView
-            android:text="TextView"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_date_fin_final"
             android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/tv_date_fin"
-            app:layout_constraintStart_toEndOf="@+id/tv_date_fin" android:layout_marginStart="8dp"/>
+            app:layout_constraintStart_toEndOf="@+id/tv_date_fin" android:layout_marginStart="8dp"
+            android:textSize="18sp" app:layout_constraintTop_toTopOf="@+id/tv_surname_final"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_surname_final"/>
     <TextView
             android:layout_width="359dp"
             android:layout_height="104dp"
@@ -111,5 +103,5 @@
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:gravity="center"
             android:textColor="@color/colorAccent"
-            android:rotation="-45" android:textSize="18sp" android:textStyle="bold"/>
+            android:rotation="-45" android:textSize="14sp" android:textStyle="bold"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

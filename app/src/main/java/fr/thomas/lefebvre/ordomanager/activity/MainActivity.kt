@@ -32,8 +32,6 @@ class MainActivity : AppCompatActivity() {
         val adRequest=AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
 
-//TODO change pub code = "ca-app-pub-5765642947536779/8938953969"
-
 
 
 

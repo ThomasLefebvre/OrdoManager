@@ -1,15 +1,13 @@
 package fr.thomas.lefebvre.ordomanager.activity
 
 import android.app.DatePickerDialog
-import android.opengl.Visibility
+import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
@@ -41,6 +39,7 @@ class NewOrdoActivity : AppCompatActivity() {
         clickBtSaveBottom()
         setCoefMultiAndDateEnd()
         listenerButtonRadio()
+
         mAdView=findViewById(R.id.adView)
         val adRequest= AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
@@ -54,13 +53,17 @@ class NewOrdoActivity : AppCompatActivity() {
         })
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_new_ordo, menu)
-        return super.onCreateOptionsMenu(menu)
+
+    fun View.hideKeyboard() {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 
 
     fun clickDatePicker(view: View) {
+
+       view.hideKeyboard()
+
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
@@ -90,6 +93,7 @@ class NewOrdoActivity : AppCompatActivity() {
 
     fun setCoefMultiAndDateEnd() {
 
+
         edit_duree.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
@@ -105,13 +109,13 @@ class NewOrdoActivity : AppCompatActivity() {
     }
 
     fun listenerButtonRadio() {
-        rb_jour.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
+        rb_date.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
             setPeriodAndDateFin()
         })
-        rb_semaine.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
+        rb_nom.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
             setPeriodAndDateFin()
         })
-        rb_mois.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
+        rb_prenom.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked ->
             setPeriodAndDateFin()
         })
     }
@@ -119,9 +123,9 @@ class NewOrdoActivity : AppCompatActivity() {
     fun setPeriodAndDateFin() {
         if (edit_duree.text.toString() != "") {
             coefMult = Integer.parseInt(edit_duree.text.toString())
-            if (rb_jour.isChecked) {
+            if (rb_date.isChecked) {
                 period = Period.ofDays(coefMult)
-            } else if (rb_semaine.isChecked) {
+            } else if (rb_nom.isChecked) {
                 period = Period.ofWeeks(coefMult)
             } else period = Period.ofMonths(coefMult)
 
@@ -158,43 +162,35 @@ class NewOrdoActivity : AppCompatActivity() {
     }
 
     fun saveOrdo() {
-        if (edit_nom.text.toString() != "" && edit_prenom.text.toString() != "" && tv_date_debut_show.text.toString() != "" && tv_date_fin_show.text != "") {
+
             insertOrdo()
-            edit_nom.text = null
-            edit_prenom.text = null
-            tv_date_debut_show.text = null
-            tv_date_fin_show.text = null
-            edit_duree.text = null
-            edit_duree.visibility = View.GONE
-        } else {
-            alertMessage()
+
         }
-    }
+
 
     fun clickBtSaveBottom() {
         bt_save.setOnClickListener(View.OnClickListener {
-            saveOrdo()
-            toastMessageSaveOrdo()
-            finish()
-            super.onBackPressed()
+            if (edit_nom.text.toString() != "" && edit_prenom.text.toString() != "" && tv_date_debut_show.text.toString() != "" && tv_date_fin_show.text != ""){
+                saveOrdo()
+                toastMessageSaveOrdo()
+                finish()
+                super.onBackPressed()
+            }
+            else {
+                alertMessage()
+            }
+
 
         })
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.menu_save -> {
-                saveOrdo()
-                finish()
-                super.onBackPressed()
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+
 
     fun toastMessageSaveOrdo(){
         Toast.makeText(this,"Ordonnance enregistrée",Toast.LENGTH_LONG).show()
     }
+
+
 }
 
 

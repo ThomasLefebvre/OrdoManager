@@ -61,7 +61,11 @@ class OrdoAdapter(val ordoAAfficher:List<Ordonnance>,val listener: (Ordonnance) 
             var dateNow= LocalDate.now()
             if(ordonnance.dateFinTri<dateNow.toString()){
                 textViewDateFin.setTextColor(Color.parseColor(colorRedString))
-                textViewAlert.text="A RENOUVELER"
+                if (ordonnance.chronique==true){
+                    textViewAlert.text="A RENOUVELER"
+                }
+                else textViewAlert.text="TERMINEE"
+
 
             }
 

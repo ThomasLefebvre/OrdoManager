@@ -9,7 +9,7 @@
         android:background="@color/colorPrimary"
        >
     <Button
-            android:text="Liste des ordonnances"
+            android:text="@string/liste_des_ordonnances"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bt_liste_ordo"
@@ -24,7 +24,7 @@
             app:layout_constraintBottom_toTopOf="@+id/bt_new_ordo"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <Button
-            android:text="Nouvelle ordonnance"
+            android:text="@string/nouvelle_ordonnance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bt_new_ordo"
@@ -48,11 +48,18 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+            ads:adUnitId="ca-app-pub-5765642947536779/8938953969"
 
             ads:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="8dp" android:layout_marginEnd="8dp" ads:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="8dp" ads:layout_constraintStart_toStartOf="parent">
     </com.google.android.gms.ads.AdView>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher_foreground_ordo"
+            android:id="@+id/imageView" android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_liste_ordo" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,4 +4,17 @@
         <item>Semaine</item>
         <item>Mois</item>
     </string-array>
+    <string name="jours">jours</string>
+    <string name="semaines">semaines</string>
+    <string name="liste_des_ordonnances">Liste des ordonnances</string>
+    <string name="nouvelle_ordonnance">Nouvelle ordonnance</string>
+    <string name="debut">Début :</string>
+    <string name="fin">Fin :</string>
+    <string name="supprimer">Supprimer</string>
+    <string name="mettre_a_jour">Mettre à jour</string>
+    <string name="trier_par">Trier par :</string>
+    <string name="trier_date">Date de fin</string>
+    <string name="trier_nom">Nom</string>
+    <string name="valider">Valider</string>
+
 </resources>
