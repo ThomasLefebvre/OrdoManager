@@ -37,6 +37,7 @@ class OrdoAdapter(val ordoAAfficher:List<Ordonnance>,val listener: (Ordonnance) 
         fun bind(ordonnance:Ordonnance, listener:(Ordonnance)->Unit,listener2:(Ordonnance)->Unit){
             val colorRedString="#AF0D31"
             val colorBlue="#1F7DC9"
+            val colorBlueLight="#75C8EE"
             //SET RECYCLERVIEW ITEM
             val textViewName: TextView =itemView.findViewById(id.tv_name_final)
             val textViewSurName: TextView =itemView.findViewById(id.tv_surname_final)
@@ -58,6 +59,9 @@ class OrdoAdapter(val ordoAAfficher:List<Ordonnance>,val listener: (Ordonnance) 
             if (ordonnance.chronique==true){
                     constraintLayout.setBackgroundColor(Color.parseColor(colorBlue))
                 }
+            else{
+                constraintLayout.setBackgroundColor(Color.parseColor(colorBlueLight))
+            }
             var dateNow= LocalDate.now()
             if(ordonnance.dateFinTri<dateNow.toString()){
                 textViewDateFin.setTextColor(Color.parseColor(colorRedString))
@@ -67,6 +71,9 @@ class OrdoAdapter(val ordoAAfficher:List<Ordonnance>,val listener: (Ordonnance) 
                 else textViewAlert.text="TERMINEE"
 
 
+            }
+            else{
+                textViewAlert.text=""
             }
 
 
